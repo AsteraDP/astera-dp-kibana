@@ -1,0 +1,21 @@
+---
+
+elasticsearch_hosts:
+  - '"http://localhost:9200"'
+
+kibana_config_dir: /etc/kibana/
+
+kibana_container_name: kibana01
+kibana_docker_image: docker.elastic.co/kibana/kibana
+kibana_docker_image_tag: 7.15.1
+
+kibana_user: kibana
+kibana_user_id: 1000
+kibana_group_id: "{{ kibana_user_id }}"
+kibana_group: "{{ kibana_user }}"
+
+kibana_port: 5601
+kibana_host: 0.0.0.0
+
+kibana_server_name: kibana.test.local
+

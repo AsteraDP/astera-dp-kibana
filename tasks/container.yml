@@ -1,0 +1,13 @@
+---
+
+- name: Create & run Kibana container
+  docker_container:
+    name: "{{ kibana_container_name }}"
+    image: "{{ kibana_docker_image }}:{{ kibana_docker_image_tag }}"
+    state: started
+    restart_policy: unless-stopped
+    ports:
+      - "{{ kibana_port }}:{{ kibana_port }}"
+    volumes:
+      - "{{ kibana_config_dir }}/kibana.yml:/usr/share/kibana/config/kibana.yml"
+      - "/usr/share/kibana/data/:/usr/share/kibana/data/"

@@ -1,0 +1,8 @@
+---
+
+- import_tasks: users.yml
+  when: create_user | default('false') | bool
+
+- import_tasks: configs.yml
+
+- import_tasks: container.yml

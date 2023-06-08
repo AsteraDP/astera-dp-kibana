@@ -1,0 +1,15 @@
+---
+
+- name: Create a group for Kibana
+  group:
+    name: "{{ kibana_user }}"
+    gid: "{{ kibana_user_id }}"
+    state: present
+
+- name: Create a user for Kibana
+  user:
+    name: "{{ kibana_user }}"
+    uid: "{{ kibana_user_id }}"
+    group: "{{ kibana_user }}"
+    create_home: false
+    shell: /usr/bin/false
